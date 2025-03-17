@@ -39,8 +39,10 @@ app.get("/api/projects", (req, res) => {
 const articles = require("./data/articles.json")
 app.get("/api/articles", (req, res) => {
     res.json(articles)
+})
 
-
+app.get("*", (req, res) => {
+    res.status(404).sendFile(__dirname + "/views/not-found.html")
 })
 
 // START THE SERVER
